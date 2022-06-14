@@ -1,0 +1,24 @@
+{
+  "name": "design-figma-tokens",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StuDocu/design-figma-tokens.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/StuDocu/design-figma-tokens/issues"
+  },
+  "homepage": "https://github.com/StuDocu/design-figma-tokens#readme",
+  "devDependencies": {
+    "style-dictionary": "^3.7.0",
+    "token-transformer": "^0.0.23"
+  }
+}
