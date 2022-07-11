@@ -355,3 +355,6 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,intellij,node,macos,windows,linux
+
+output/
+output.json
