@@ -4,6 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "generate:json": "yarn token-transformer data/tokens.json output.json --expandTypography --expandShadow",
+    "generate:scss": "yarn style-dictionary build --config tokens.config.js",
+    "postinstall": "yarn generate:json && yarn generate:scss",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
