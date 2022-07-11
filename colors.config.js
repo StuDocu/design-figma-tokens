@@ -23,7 +23,7 @@ function customFormatter(props) {
 
           // Goes through each color definition and sets the variable
           ...children.map(([childKey, childValue]) => {
-            return `$color-${kebabCase(key)}-${kebabCase(childKey)}: ${
+            return `$rebranded-color-${kebabCase(key)}-${kebabCase(childKey)}: ${
               childValue.value
             };`;
           }),
