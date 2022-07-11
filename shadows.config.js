@@ -9,11 +9,11 @@ function hexToRGB(hex) {
 
     // No alpha channel? Return RGB format
     if (!result[4]) {
-      return r + " " + g + " " + b;
+      return `rgb(${r}, ${g}, ${b})`;
     }
 
     const a = Math.floor(parseInt(result[4], 16) / 255 * 100);
-    return `${r} ${g} ${b} / ${a}%`;
+    return `rgba(${r}, ${g}, ${b}, ${a}%)`;
   }
   return null;
 }
@@ -39,12 +39,16 @@ function customFormatter(props) {
         const spreadValue = spread.value === 0 ? "0" : `${spread.value}px`;
         const colorInRGB = hexToRGB(color.value);
 
+        if (!colorInRGB) {
+          return output;
+        }
+
         return [
           ...output,
           // Goes through each color definition and sets the variable
           `$${kebabCase(key)}: ${
             value.type.value === "innerShadow" ? "inset " : ""
-          }${offsetX} ${offsetY} ${blurRadius} ${spreadValue} rgb(${colorInRGB});`,
+          }${offsetX} ${offsetY} ${blurRadius} ${spreadValue} ${colorInRGB};`,
         ];
       },
       ["// Rebranded shadow tokens"]

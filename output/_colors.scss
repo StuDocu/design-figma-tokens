@@ -1,69 +1,192 @@
 // Rebranded color tokens
 
 // Neutral shades
-$color-neutral-10: #ffffff;
-$color-neutral-20: #f6f7fb;
-$color-neutral-30: #dce1e5;
-$color-neutral-40: #d3d9e0;
-$color-neutral-50: #b8c1cc;
-$color-neutral-60: #9ea9b5;
-$color-neutral-70: #7a838c;
-$color-neutral-80: #4c5966;
-$color-neutral-90: #2f3e4e;
-$color-neutral-100: #0a0a0a;
-$color-neutral-30-light-border: #e6ebef;
-$color-neutral-40-border: #d3d9e0;
-$color-neutral-80-text-input-default: #4c5966;
-$color-neutral-90-body-text: #2f3e4e;
-$color-neutral-100-title: #0a0a0a;
-
-// Tertiary shades
-$color-tertiary-ecru: #efeee8;
-$color-tertiary-lime: #e0ff6e;
-$color-tertiary-mustard: #a5a824;
-$color-tertiary-dark-green: #264402;
-$color-tertiary-light-purple: #ecd7ff;
-$color-tertiary-purple: #b69dfc;
-$color-tertiary-turquoise: #416467;
-$color-tertiary-dark-burgundy: #2a0316;
-$color-tertiary-grey-blue: #e0eafe;
-
-// Danger shades
-$color-danger-main: #e62600;
-$color-danger-surface: #fff4f2;
-$color-danger-border: #eeb4b0;
-$color-danger-focus: #e6260033;
-$color-danger-hover: #bd251c;
-$color-danger-pressed: #841d15;
-
-// Warning shades
-$color-warning-main: #ff9800;
-$color-warning-surface: #fff5eb;
-$color-warning-border: #fae0ba;
-$color-warning-hover: #de8705;
-$color-warning-pressed: #aa6500;
-
-// Success shades
-$color-success-main: #07a740;
-$color-success-surface: #f3fcf6;
-$color-success-border: #bdecce;
-$color-success-hover: #0a933b;
-$color-success-pressed: #035420;
+$rebranded-color-neutral-10: #ffffff;
+$rebranded-color-neutral-20: #f6f7fb;
+$rebranded-color-neutral-50: #b8c1cc;
+$rebranded-color-neutral-60: #9ea9b5;
+$rebranded-color-neutral-70: #7a838c;
+$rebranded-color-neutral-30-light-border: #e6ebef;
+$rebranded-color-neutral-40-border: #d3d9e0;
+$rebranded-color-neutral-80-text-input-default: #4c5966;
+$rebranded-color-neutral-90-body-text: #2f3e4e;
+$rebranded-color-neutral-100-title: #0a0a0a;
 
 // Blue shades
-$color-blue-100: #f1f7fe;
-$color-blue-200: #e1f3ff;
-$color-blue-300: #3092fa33;
-$color-blue-400: #aad2ff;
-$color-blue-500: #3092fa;
-$color-blue-600: #0a75e6;
-$color-blue-700: #1168c3;
+$rebranded-color-blue-10: #f1f7fe;
+$rebranded-color-blue-20: #e2effd;
+$rebranded-color-blue-30: #d5e9fe;
+$rebranded-color-blue-40: #badbfd;
+$rebranded-color-blue-50: #aad2ff;
+$rebranded-color-blue-60: #4ea4ff;
+$rebranded-color-blue-70: #3092fa;
+$rebranded-color-blue-80: #0a75e6;
+$rebranded-color-blue-90: #1168c3;
+$rebranded-color-blue-100: #0d4887;
+
+// Pink shades
+$rebranded-color-pink-10: #fef5ff;
+$rebranded-color-pink-20: #fdebfe;
+$rebranded-color-pink-30: #fcd7ff;
+$rebranded-color-pink-40: #f9b1ff;
+$rebranded-color-pink-50: #f598fd;
+$rebranded-color-pink-60: #f37efd;
+$rebranded-color-pink-70: #f064fc;
+$rebranded-color-pink-80: #cb32d8;
+$rebranded-color-pink-90: #a831b2;
+$rebranded-color-pink-100: #58175e;
 
 // Green shades
-$color-green-100: #f5ffeb;
-$color-green-200: #d5f3cc;
-$color-green-300: #b8e7ab;
-$color-green-400: #30cd04;
-$color-green-500: #2cc302;
-$color-green-600: #259f02;
-$color-green-700: #166101;
+$rebranded-color-green-10: #f5ffeb;
+$rebranded-color-green-20: #ecfcda;
+$rebranded-color-green-30: #cff5b7;
+$rebranded-color-green-40: #9ae879;
+$rebranded-color-green-50: #72d756;
+$rebranded-color-green-60: #30cd04;
+$rebranded-color-green-70: #2cc302;
+$rebranded-color-green-80: #259f02;
+$rebranded-color-green-90: #1d8201;
+$rebranded-color-green-100: #166101;
+
+// Lime shades
+$rebranded-color-lime-10: #fcfff0;
+$rebranded-color-lime-20: #f9ffe2;
+$rebranded-color-lime-30: #f5ffcf;
+$rebranded-color-lime-40: #f0ffb7;
+$rebranded-color-lime-50: #eaff9e;
+$rebranded-color-lime-60: #e5ff86;
+$rebranded-color-lime-70: #e0ff6e;
+$rebranded-color-lime-80: #cff250;
+$rebranded-color-lime-90: #b7e21d;
+$rebranded-color-lime-100: #a6cb20;
+
+// Turquoise shades
+$rebranded-color-turquoise-10: #e8eced;
+$rebranded-color-turquoise-20: #d9e0e1;
+$rebranded-color-turquoise-30: #c0cbcc;
+$rebranded-color-turquoise-40: #a0b2b3;
+$rebranded-color-turquoise-50: #80989a;
+$rebranded-color-turquoise-60: #617e80;
+$rebranded-color-turquoise-70: #416467;
+$rebranded-color-turquoise-80: #365356;
+$rebranded-color-turquoise-90: #2b4345;
+$rebranded-color-turquoise-100: #203233;
+
+// Utilitarian-red shades
+$rebranded-color-utilitarian-red-10: #fff4f2;
+$rebranded-color-utilitarian-red-20: #fcdbd4;
+$rebranded-color-utilitarian-red-30: #f3b0ab;
+$rebranded-color-utilitarian-red-40: #f39380;
+$rebranded-color-utilitarian-red-50: #ee6e55;
+$rebranded-color-utilitarian-red-60: #ea4a2a;
+$rebranded-color-utilitarian-red-70: #e62600;
+$rebranded-color-utilitarian-red-80: #bd251c;
+$rebranded-color-utilitarian-red-90: #841d15;
+$rebranded-color-utilitarian-red-100: #731300;
+
+// Tangerine shades
+$rebranded-color-tangerine-10: #fef2eb;
+$rebranded-color-tangerine-20: #fde1d2;
+$rebranded-color-tangerine-30: #fbcdb3;
+$rebranded-color-tangerine-40: #feb488;
+$rebranded-color-tangerine-50: #fd9a62;
+$rebranded-color-tangerine-60: #f58342;
+$rebranded-color-tangerine-70: #f36a1c;
+$rebranded-color-tangerine-80: #e36015;
+$rebranded-color-tangerine-90: #c44e0a;
+$rebranded-color-tangerine-100: #983e0b;
+
+// Dark Burgundy shades
+$rebranded-color-dark-burgundy-10: #e5e1e3;
+$rebranded-color-dark-burgundy-20: #d4cdd0;
+$rebranded-color-dark-burgundy-30: #b8abb1;
+$rebranded-color-dark-burgundy-40: #95818a;
+$rebranded-color-dark-burgundy-50: #715764;
+$rebranded-color-dark-burgundy-60: #4e2d3d;
+$rebranded-color-dark-burgundy-70: #2a0316;
+$rebranded-color-dark-burgundy-80: #230212;
+$rebranded-color-dark-burgundy-90: #15010b;
+$rebranded-color-dark-burgundy-100: #0e0107;
+
+// Dark Green shades
+$rebranded-color-dark-green-10: #e1e5dc;
+$rebranded-color-dark-green-20: #d4dacc;
+$rebranded-color-dark-green-30: #b7c1ab;
+$rebranded-color-dark-green-40: #93a180;
+$rebranded-color-dark-green-50: #6e8256;
+$rebranded-color-dark-green-60: #4a632c;
+$rebranded-color-dark-green-70: #264402;
+$rebranded-color-dark-green-80: #203902;
+$rebranded-color-dark-green-90: #192d01;
+$rebranded-color-dark-green-100: #132201;
+
+// Ecru shades
+$rebranded-color-ecru-10: #ffffff;
+$rebranded-color-ecru-20: #fcfcfa;
+$rebranded-color-ecru-30: #faf9f7;
+$rebranded-color-ecru-40: #f7f7f4;
+$rebranded-color-ecru-50: #f4f4f0;
+$rebranded-color-ecru-60: #f2f1ec;
+$rebranded-color-ecru-70: #efeee8;
+$rebranded-color-ecru-80: #cccabc;
+$rebranded-color-ecru-90: #aaaa90;
+$rebranded-color-ecru-100: #81816a;
+
+// Grey Blue shades
+$rebranded-color-grey-blue-10: #ffffff;
+$rebranded-color-grey-blue-20: #f9fbff;
+$rebranded-color-grey-blue-30: #f5f8ff;
+$rebranded-color-grey-blue-40: #f0f5ff;
+$rebranded-color-grey-blue-50: #eaf1fe;
+$rebranded-color-grey-blue-60: #e5edfe;
+$rebranded-color-grey-blue-70: #e0eafe;
+$rebranded-color-grey-blue-80: #bac9e8;
+$rebranded-color-grey-blue-90: #899dc2;
+$rebranded-color-grey-blue-100: #586d97;
+
+// Light Purple shades
+$rebranded-color-light-purple-10: #fcfaff;
+$rebranded-color-light-purple-20: #fbf7ff;
+$rebranded-color-light-purple-30: #f9f2ff;
+$rebranded-color-light-purple-40: #f6ebff;
+$rebranded-color-light-purple-50: #f2e4ff;
+$rebranded-color-light-purple-60: #efdeff;
+$rebranded-color-light-purple-70: #ecd7ff;
+$rebranded-color-light-purple-80: #ceb2e6;
+$rebranded-color-light-purple-90: #aa86ca;
+$rebranded-color-light-purple-100: #8c6eaa;
+
+// Mustard shades
+$rebranded-color-mustard-10: #f4f5e5;
+$rebranded-color-mustard-20: #edeed3;
+$rebranded-color-mustard-30: #e1e2b6;
+$rebranded-color-mustard-40: #d2d492;
+$rebranded-color-mustard-50: #c3c56d;
+$rebranded-color-mustard-60: #b4b749;
+$rebranded-color-mustard-70: #a5a824;
+$rebranded-color-mustard-80: #898c1e;
+$rebranded-color-mustard-90: #6e7018;
+$rebranded-color-mustard-100: #525412;
+
+// Purple shades
+$rebranded-color-purple-10: #f8f5ff;
+$rebranded-color-purple-20: #f0ebfe;
+$rebranded-color-purple-30: #e7defe;
+$rebranded-color-purple-40: #dbcefe;
+$rebranded-color-purple-50: #cebefd;
+$rebranded-color-purple-60: #c2adfd;
+$rebranded-color-purple-70: #b69dfc;
+$rebranded-color-purple-80: #967fd6;
+$rebranded-color-purple-90: #735db4;
+$rebranded-color-purple-100: #53408d;
+
+// Tertiary shades
+$rebranded-color-tertiary-ecru: #efeee8;
+$rebranded-color-tertiary-lime: #e0ff6e;
+$rebranded-color-tertiary-mustard: #a5a824;
+$rebranded-color-tertiary-dark-green: #264402;
+$rebranded-color-tertiary-light-purple: #ecd7ff;
+$rebranded-color-tertiary-purple: #b69dfc;
+$rebranded-color-tertiary-turquoise: #416467;
+$rebranded-color-tertiary-dark-burgundy: #2a0316;
+$rebranded-color-tertiary-grey-blue: #e0eafe;
