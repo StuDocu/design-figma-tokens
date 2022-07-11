@@ -1,8 +1,10 @@
+const colorsTransformer = require('./utils/colors.transformer');
 const spacingTransformer = require('./utils/spacing.transformer');
 
 module.exports = {
   source: ["output.json"],
   format: {
+    colorsTransformer,
     spacingTransformer,
   },
   platforms: {
@@ -13,6 +15,10 @@ module.exports = {
         {
           destination: "variables/_spacing.scss",
           format: "spacingTransformer",
+        },
+        {
+          destination: "variables/_colors.scss",
+          format: "colorsTransformer",
         },
       ],
     },
