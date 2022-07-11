@@ -13,7 +13,7 @@ module.exports = function spacingTransformer(props) {
         return [
           ...output,
 
-          // Goes through each color definition and sets the variable
+          // Goes through each spacing scale definition and sets the variable
           `$rebranded-spacing-${kebabCase(key)}: ${itemValue};`,
         ];
       },
