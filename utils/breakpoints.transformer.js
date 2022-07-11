@@ -2,7 +2,7 @@ const { kebabCase } = require("style-dictionary/lib/utils/es6_");
 
 module.exports = {};
 module.exports.breakpointsVariablesTransformer =
-  function breakpointsVariablesTransformer(props, outputType) {
+  function breakpointsVariablesTransformer(props) {
     const { Breakpoints } = props.dictionary.properties;
 
     return Object.entries(Breakpoints)
@@ -23,7 +23,7 @@ module.exports.breakpointsVariablesTransformer =
   };
 
 module.exports.breakpointsMixinsTransformer =
-  function breakpointsMixinsTransformer(props, outputType) {
+  function breakpointsMixinsTransformer(props) {
     const { Breakpoints } = props.dictionary.properties;
 
     // Mixins
@@ -32,7 +32,7 @@ module.exports.breakpointsMixinsTransformer =
         (output, [key, value]) => {
           const { value: itemValue } = value;
 
-          if (Number(itemValue) <= 0) {
+          if (parseInt(itemValue, 10) <= 0) {
             return output;
           }
 
@@ -40,7 +40,7 @@ module.exports.breakpointsMixinsTransformer =
           return [
             ...output,
 
-            // Goes through each spacing scale definition and sets the variable
+            // Goes through each breakpoint scale definition and sets the mixin
             `@mixin from-${kebabCasedKey}($mediaType: 'screen') {
   @include from-breakpoint(${itemValue}, $mediaType) {
     @content;

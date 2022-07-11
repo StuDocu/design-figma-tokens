@@ -3,6 +3,10 @@ const {
   breakpointsVariablesTransformer,
 } = require("./utils/breakpoints.transformer");
 const colorsTransformer = require("./utils/colors.transformer");
+const {
+  gridsMixinsTransformer,
+  gridsVariablesTransformer,
+} = require("./utils/grids.transformer");
 const shadowsTransformer = require("./utils/shadows.transformer");
 const spacingTransformer = require("./utils/spacing.transformer");
 
@@ -12,6 +16,8 @@ module.exports = {
     breakpointsMixinsTransformer,
     breakpointsVariablesTransformer,
     colorsTransformer,
+    gridsVariablesTransformer,
+    gridsMixinsTransformer,
     shadowsTransformer,
     spacingTransformer,
   },
@@ -27,6 +33,14 @@ module.exports = {
         {
           destination: "mixins/_breakpoints.scss",
           format: "breakpointsMixinsTransformer",
+        },
+        {
+          destination: "variables/_grids.scss",
+          format: "gridsVariablesTransformer",
+        },
+        {
+          destination: "mixins/_grids.scss",
+          format: "gridsMixinsTransformer",
         },
         {
           destination: "variables/_colors.scss",
