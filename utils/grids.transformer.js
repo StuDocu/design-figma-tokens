@@ -19,6 +19,7 @@ module.exports.gridsVariablesTransformer = function gridsVariablesTransformer(
         `$rebranded-${gridValue.breakpoint.name}: ${gridValue.breakpoint.value};`,
         `$rebranded-${gridValue["column-number"].name}: ${gridValue["column-number"].value};`,
         `$rebranded-${gridValue["column-gap"].name}: ${gridValue["column-gap"].value};`,
+        `$rebranded-${gridValue["max-width"].name}: ${gridValue["max-width"].value};`,
         `$rebranded-${gridValue["outer-margin"].name}: ${gridValue["outer-margin"].value};\n`,
       ];
     },

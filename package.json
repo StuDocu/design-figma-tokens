@@ -23,5 +23,8 @@
   "devDependencies": {
     "style-dictionary": "^3.7.0",
     "token-transformer": "^0.0.23"
+  },
+  "dependencies": {
+    "glob": "^8.0.3"
   }
 }

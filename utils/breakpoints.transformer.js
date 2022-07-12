@@ -5,21 +5,15 @@ module.exports.breakpointsVariablesTransformer =
   function breakpointsVariablesTransformer(props) {
     const { Breakpoints } = props.dictionary.properties;
 
-    return Object.entries(Breakpoints)
-      .reduce(
-        (output, [key, value]) => {
-          const { value: itemValue } = value;
-
-          return [
-            ...output,
-
-            // Goes through each spacing scale definition and sets the variable
-            `$rebranded-breakpoints-${kebabCase(key)}: ${itemValue};`,
-          ];
-        },
-        ["// Rebranded breakpoints tokens"]
-      )
-      .join("\n");
+    return `// Rebranded breakpoints tokens
+$rebranded-breakpoints: (
+  ${Object.entries(Breakpoints)
+    .map(
+      // Goes through each spacing scale definition and sets the variable
+      ([key, item]) => `"${kebabCase(key)}": ${item.value}`
+    )
+    .join(",\n  ")}
+);`;
   };
 
 module.exports.breakpointsMixinsTransformer =
@@ -42,20 +36,21 @@ module.exports.breakpointsMixinsTransformer =
 
             // Goes through each breakpoint scale definition and sets the mixin
             `@mixin from-${kebabCasedKey}($mediaType: 'screen') {
-  @include from-breakpoint(${itemValue}, $mediaType) {
+  @include from-breakpoint(${kebabCasedKey}, $mediaType) {
     @content;
   }
 }\n`,
           ];
         },
         [
+          "@use 'sass:map';",
           "@import '../variables/breakpoints';\n",
           "// Rebranded breakpoints mixins",
-          `@mixin from-breakpoint($minWidth, $mediaType: 'screen') {
-  @media #{$mediaType} and (min-width: #{$minWidth}) {
+          `@mixin from-breakpoint($breakpoint, $mediaType: 'screen') {
+  @media #{$mediaType} and (min-width: #{map.get($rebranded-breakpoints, $breakpoint)}) {
     @content;
   }
-}\n`
+}\n`,
         ]
       )
       .join("\n");
