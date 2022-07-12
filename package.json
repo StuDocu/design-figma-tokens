@@ -20,11 +20,9 @@
     "url": "https://github.com/StuDocu/design-figma-tokens/issues"
   },
   "homepage": "https://github.com/StuDocu/design-figma-tokens#readme",
-  "devDependencies": {
+  "dependencies": {
+    "glob": "^8.0.3",
     "style-dictionary": "^3.7.0",
     "token-transformer": "^0.0.23"
-  },
-  "dependencies": {
-    "glob": "^8.0.3"
   }
 }
