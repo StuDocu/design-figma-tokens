@@ -17,32 +17,6 @@ const convertWeight = (fontWeightValue) => {
   return { fontWeight, textDecoration };
 };
 
-module.exports.textColorsVariablesTransformer = function textColorsVariablesTransformer(props) {
-  const textColors = Object.values(props.dictionary.properties["Text Colors"]);
-  const textStylesColors = Object.values(
-    props.dictionary.properties["Text Styles"]
-  ).map((item) => {
-    return item.color;
-  });
-  const textColorsVariables = textColors
-    .reduce(
-      (output, item) =>
-        output.concat([`$rebranded-${kebabCase(item.name)}: ${item.value};`]),
-      ["// Rebranded text-colors tokens"]
-    )
-    .join("\n");
-
-  const textStylesVariables = textStylesColors
-    .reduce(
-      (output, item) =>
-        output.concat([`$rebranded-${kebabCase(item.name)}: ${item.value};`]),
-      ["// Rebranded text-styles colors tokens"]
-    )
-    .join("\n");
-
-  return `${textColorsVariables}\n\n${textStylesVariables}\n`;
-};
-
 module.exports.textStylesVariablesTransformer = function textStylesVariablesTransformer(props) {
   const textStyles = Object.entries(props.dictionary.properties["Text Styles"]);
   const textStylesMap = textStyles
