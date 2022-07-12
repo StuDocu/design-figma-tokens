@@ -12,7 +12,6 @@ const radiusTransformer = require("./utils/radius.transformer");
 const shadowsTransformer = require("./utils/shadows.transformer");
 const spacingTransformer = require("./utils/spacing.transformer");
 const {
-  textColorsVariablesTransformer,
   textStylesMixinsTransformer,
   textStylesVariablesTransformer,
 } = require("./utils/typography.transformer");
@@ -30,7 +29,6 @@ module.exports = {
     radiusTransformer,
     shadowsTransformer,
     spacingTransformer,
-    textColorsVariablesTransformer,
     textStylesVariablesTransformer,
     textStylesMixinsTransformer,
   },
@@ -70,10 +68,6 @@ module.exports = {
         {
           destination: "variables/_spacing.scss",
           format: "spacingTransformer",
-        },
-        {
-          destination: "variables/_textColors.scss",
-          format: "textColorsVariablesTransformer",
         },
         {
           destination: "variables/_textStyles.scss",
