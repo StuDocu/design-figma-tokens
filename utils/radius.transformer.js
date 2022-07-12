@@ -1,7 +1,7 @@
 const kebabCase = require("lodash.kebabcase");
 
 module.exports = function radiusTransformer(props) {
-  return `// Rebrandaded border radius scale
+  return `// Rebranded border radius scale
 ${Object.entries(props.dictionary.properties)
   .filter(([key, item]) => item.type === "borderRadius")
   .map(
