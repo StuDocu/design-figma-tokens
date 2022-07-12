@@ -1,4 +1,4 @@
-const { kebabCase } = require("style-dictionary/lib/utils/es6_");
+const kebabCase = require("lodash.kebabcase");
 
 module.exports = function colorsTransformer(props) {
   return Object.entries(props.dictionary.properties)

@@ -1,4 +1,4 @@
-const { kebabCase } = require("style-dictionary/lib/utils/es6_");
+const kebabCase = require("lodash.kebabcase");
 
 module.exports = {};
 module.exports.gridsVariablesTransformer = function gridsVariablesTransformer(

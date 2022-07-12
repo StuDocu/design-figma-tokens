@@ -1,4 +1,4 @@
-const { kebabCase } = require("style-dictionary/lib/utils/es6_");
+const kebabCase = require("lodash.kebabcase");
 
 function hexToRGB(hex) {
   const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})?$/i.exec(
