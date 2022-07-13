@@ -17,7 +17,7 @@ const convertWeight = (fontWeightValue) => {
   return { fontWeight, textDecoration };
 };
 
-module.exports.textStylesVariablesTransformer = function textStylesVariablesTransformer(props) {
+module.exports.typographyVariablesTransformer = function typographyVariablesTransformer(props) {
   const textStyles = Object.entries(props.dictionary.properties["Text Styles"]);
   const textStylesMap = textStyles
     .reduce((output, [key, item]) => {
@@ -48,7 +48,7 @@ module.exports.textStylesVariablesTransformer = function textStylesVariablesTran
 );`;
 };
 
-module.exports.textStylesMixinsTransformer = function textStylesMixinsTransformer(props) {
+module.exports.typographyMixinsTransformer = function typographyMixinsTransformer(props) {
   const textStyles = Object.entries(props.dictionary.properties["Text Styles"]);
   const textStylesMap = textStyles
     .reduce((output, [key, item]) => {
@@ -85,6 +85,7 @@ module.exports.textStylesMixinsTransformer = function textStylesMixinsTransforme
     font-family: #{map-get($style, 'font-family')}, sans-serif;
     font-weight: map-get($style, 'font-weight');
     line-height: map-get($style, 'line-height');
+    margin-bottom: map-get($style, 'margin-bottom');
 
     
     @each $breakpoint, $fontSize in map-get($style, 'font-sizes') {

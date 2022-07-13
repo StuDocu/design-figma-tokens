@@ -1,40 +1,60 @@
-const { generateAllMixinsFile, generateAllVariablesFile } = require('./utils/all.generator');
+const path = require("path");
+
+const {
+  generateAllMixinsFile,
+  generateAllVariablesFile,
+} = require("./utils/scss/all.scss.generator");
 const {
   breakpointsMixinsTransformer,
   breakpointsVariablesTransformer,
-} = require("./utils/breakpoints.transformer");
-const colorsTransformer = require("./utils/colors.transformer");
+} = require("./utils/scss/breakpoints.scss.transformer");
+const colorsTransformer = require("./utils/scss/colors.scss.transformer");
 const {
   gridsMixinsTransformer,
   gridsVariablesTransformer,
-} = require("./utils/grids.transformer");
-const radiusTransformer = require("./utils/radius.transformer");
-const shadowsTransformer = require("./utils/shadows.transformer");
-const spacingTransformer = require("./utils/spacing.transformer");
+} = require("./utils/scss/grids.scss.transformer");
+const radiusTransformer = require("./utils/scss/radius.scss.transformer");
+const shadowsTransformer = require("./utils/scss/shadows.scss.transformer");
+const spacingTransformer = require("./utils/scss/spacing.scss.transformer");
 const {
-  textStylesMixinsTransformer,
-  textStylesVariablesTransformer,
-} = require("./utils/typography.transformer");
+  typographyMixinsTransformer,
+  typographyVariablesTransformer,
+} = require("./utils/scss/typography.scss.transformer");
 
 module.exports = {
-  source: ["output.json"],
+  source: [path.join(__dirname, "..", "transformedTokens.json")],
   format: {
+    // Responsible for generating the `_breakpoints.scss` in both mixins and variables folders
     breakpointsMixinsTransformer,
     breakpointsVariablesTransformer,
+
+    // Responsible for generating the `_colors.scss` in variables
     colorsTransformer,
+
+    // Responsible for generating the `all.scss` in both mixins and variables folders
     generateAllMixinsFile,
     generateAllVariablesFile,
+
+    // Responsible for generating the `_grids.scss` in both mixins and variables folders
     gridsVariablesTransformer,
     gridsMixinsTransformer,
+
+    // Responsible for generating the `_borderRadius.scss` in variables
     radiusTransformer,
+
+    // Responsible for generating the `_shadows.scss` in variables
     shadowsTransformer,
+
+    // Responsible for generating the `_spacing.scss` in variables
     spacingTransformer,
-    textStylesVariablesTransformer,
-    textStylesMixinsTransformer,
+
+    // Responsible for generating the `_typography.scss` on both mixins and variables folders
+    typographyVariablesTransformer,
+    typographyMixinsTransformer,
   },
   platforms: {
     scss: {
-      buildPath: "output/",
+      buildPath: `${path.join(__dirname, "..")}/`,
       transformGroup: "scss",
       files: [
         {
@@ -70,12 +90,12 @@ module.exports = {
           format: "spacingTransformer",
         },
         {
-          destination: "variables/_textStyles.scss",
-          format: "textStylesVariablesTransformer",
+          destination: "variables/_typography.scss",
+          format: "typographyVariablesTransformer",
         },
         {
-          destination: "mixins/_textStyles.scss",
-          format: "textStylesMixinsTransformer",
+          destination: "mixins/_typography.scss",
+          format: "typographyMixinsTransformer",
         },
         {
           destination: "mixins/all.scss",

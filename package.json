@@ -1,11 +1,11 @@
 {
-  "name": "design-figma-tokens",
+  "name": "@studocu/slice",
   "version": "1.0.0",
-  "description": "",
+  "description": "Design Tokens from our SLICE design system at Studocu",
   "main": "index.js",
   "scripts": {
-    "generate:json": "yarn token-transformer data/tokens.json output.json --expandTypography --expandShadow",
-    "generate:scss": "yarn style-dictionary build --config tokens.config.js",
+    "generate:json": "yarn token-transformer data/tokens.json transformedTokens.json --expandTypography --expandShadow",
+    "generate:scss": "yarn style-dictionary build --config src/tokens.config.js",
     "postinstall": "yarn generate:json && yarn generate:scss",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
