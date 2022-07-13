@@ -1,0 +1,29 @@
+{
+  "name": "design-figma-tokens",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "generate:json": "yarn token-transformer data/tokens.json output.json --expandTypography --expandShadow",
+    "generate:scss": "yarn style-dictionary build --config tokens.config.js",
+    "postinstall": "yarn generate:json && yarn generate:scss",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StuDocu/design-figma-tokens.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/StuDocu/design-figma-tokens/issues"
+  },
+  "homepage": "https://github.com/StuDocu/design-figma-tokens#readme",
+  "dependencies": {
+    "glob": "^8.0.3",
+    "lodash.kebabcase": "^4.1.1",
+    "style-dictionary": "^3.7.0",
+    "token-transformer": "^0.0.23"
+  }
+}
