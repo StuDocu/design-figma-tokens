@@ -17,75 +17,56 @@ const convertWeight = (fontWeightValue) => {
   return { fontWeight, textDecoration };
 };
 
-module.exports.typographyVariablesTransformer = function typographyVariablesTransformer(props) {
-  const textStyles = Object.entries(props.dictionary.properties["Text Styles"]);
-  const textStylesMap = textStyles
-    .reduce((output, [key, item]) => {
-      const children = Object.entries(item);
-      const entry = `"${key}": (
-    ${children
-      .map(([key, child]) => {
-        if (child.value) {
-          return `"${key}": ${key === 'font-weight' ? convertWeight(child.value).fontWeight : child.value}`;
-        }
-
-        return `"${key}": (
-      ${Object.entries(child)
-            .map(
-              ([childKey, childItem]) =>
-                `"${childKey}": ${childItem["font-size"].value}`
-            )
-            .join(",\n      ")}
-    )`;
-      })
-      .join(",\n    ")}
+module.exports.typographyVariablesTransformer =
+  function typographyVariablesTransformer(props) {
+    const textStyles = Object.entries(
+      props.dictionary.properties["Text Styles"]
+    );
+    const textStylesMap = textStyles
+      .reduce((output, [key, item]) => {
+        const entry = `"${key}": (
+    "color": ${item.color.value},
+    "font-family": "${item["font-family"].value}",
+    "font-sizes": (
+      ${Object.entries(item["font-sizes"])
+        .map(
+          ([breakpoint, fontSizeObj]) =>
+            `"${breakpoint}": ${fontSizeObj["font-size"].value}`
+        )
+        .join(",\n      ")}
+    ),
+    "font-weight": ${item["font-weight"].value},
+    "line-height": ${item["line-height"].value},
+    "margins": (
+      ${Object.entries(item["margins"])
+        .map(
+          ([breakpoint, fontSizeObj]) =>
+            `"${breakpoint}": ${fontSizeObj["margin"].value}`
+        )
+        .join(",\n      ")}
+    )
   )`;
-      return output.concat(entry);
-    }, [])
-    .join(",\n  ");
-  return `$textStylesMap: (
+        return output.concat(entry);
+      }, [])
+      .join(",\n  ");
+    return `$rebranded-text-styles: (
   ${textStylesMap}
 );`;
-};
+  };
 
-module.exports.typographyMixinsTransformer = function typographyMixinsTransformer(props) {
-  const textStyles = Object.entries(props.dictionary.properties["Text Styles"]);
-  const textStylesMap = textStyles
-    .reduce((output, [key, item]) => {
-      const children = Object.entries(item);
-      const entry = `"${key}": (
-    ${children
-      .map(([key, child]) => {
-        if (child.value) {
-          return `"${key}": ${key === 'font-weight' ? convertWeight(child.value).fontWeight : child.value}`;
-        }
-
-        return `"${key}": (
-      ${Object.entries(child)
-            .map(
-              ([childKey, childItem]) =>
-                `"${childKey}": ${childItem["font-size"].value}`
-            )
-            .join(",\n      ")}
-    )`;
-      })
-      .join(",\n    ")}
-  )`;
-      return output.concat(entry);
-    }, [])
-    .join(",\n  ");
-  return `@import '../variables/textStyles';
+module.exports.typographyMixinsTransformer =
+  function typographyMixinsTransformer(props) {
+    return `@import '../variables/typography';
 @import './breakpoints';
 
 @mixin get-text-style($key) {
-  $style: map-get($textStylesMap, $key);
+  $style: map-get($rebranded-text-styles, $key);
   
   @if $style {
     color: map-get($style, 'color');
     font-family: #{map-get($style, 'font-family')}, sans-serif;
     font-weight: map-get($style, 'font-weight');
     line-height: map-get($style, 'line-height');
-    margin-bottom: map-get($style, 'margin-bottom');
 
     
     @each $breakpoint, $fontSize in map-get($style, 'font-sizes') {
@@ -97,6 +78,16 @@ module.exports.typographyMixinsTransformer = function typographyMixinsTransforme
         }
       }
     }
+
+    @each $breakpoint, $margin in map-get($style, 'margins') {
+      @if $breakpoint == "small" {
+        margin: $margin;
+      } @else {
+        @include from-breakpoint($breakpoint) {
+          margin: $margin;
+        }
+      }
+    }
   }
 }`;
-};
+  };
