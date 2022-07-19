@@ -17,8 +17,13 @@ const convertWeight = (fontWeightValue) => {
 module.exports.typographyVariablesTransformer = function typographyVariablesTransformer(props) {
     const textStyles = Object.entries(props.dictionary.properties['Text Styles']);
 
-    const fontSizes = Object.entries(props.dictionary.properties['fontSize'])
-        .map(([key, item]) => `$rebranded-font-sizes-scale-${key}: ${item.value};`)
+    const fontSizesReference = Object.entries(props.dictionary.properties['fontSize']).map(([key, item]) => [
+        key,
+        item.value,
+    ]);
+
+    const fontSizes = fontSizesReference
+        .map(([key, value]) => `$rebranded-font-sizes-scale-${key}: ${value};`)
         .join('\n');
 
     const textStylesMap = textStyles
@@ -28,7 +33,12 @@ module.exports.typographyVariablesTransformer = function typographyVariablesTran
     "font-family": "${item['font-family'].value}",
     "font-sizes": (
       ${Object.entries(item['font-sizes'])
-          .map(([breakpoint, fontSizeObj]) => `"${breakpoint}": ${fontSizeObj['font-size'].value}`)
+          .map(([breakpoint, fontSizeObj]) => {
+              const fontScale = fontSizesReference.find(([key, value]) => fontSizeObj['font-size'].value === value);
+              return `"${breakpoint}": $rebranded-font-sizes-scale-${
+                  fontScale ? fontScale[0] : fontSizeObj['font-size'].value
+              }`;
+          })
           .join(',\n      ')}
     ),
     "font-weight": ${convertWeight(item['font-weight'].value).fontWeight},
@@ -42,7 +52,10 @@ module.exports.typographyVariablesTransformer = function typographyVariablesTran
             return output.concat(entry);
         }, [])
         .join(',\n  ');
-    return `${fontSizes}\n\n$rebranded-text-styles: (
+    return `// Rebranded font-size variables
+${fontSizes}
+
+// Rebranded text-styles map\n$rebranded-text-styles: (
   ${textStylesMap}
 );`;
 };
