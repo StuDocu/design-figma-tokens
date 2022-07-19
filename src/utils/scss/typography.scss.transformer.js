@@ -35,7 +35,7 @@ module.exports.typographyVariablesTransformer =
         )
         .join(",\n      ")}
     ),
-    "font-weight": ${item["font-weight"].value},
+    "font-weight": ${convertWeight(item["font-weight"].value).fontWeight},
     "line-height": ${item["line-height"].value},
     "margins": (
       ${Object.entries(item["margins"])
@@ -61,14 +61,14 @@ module.exports.typographyMixinsTransformer =
 
 @mixin get-text-style($key) {
   $style: map-get($rebranded-text-styles, $key);
-  
+
   @if $style {
     color: map-get($style, 'color');
     font-family: #{map-get($style, 'font-family')}, sans-serif;
     font-weight: map-get($style, 'font-weight');
     line-height: map-get($style, 'line-height');
 
-    
+
     @each $breakpoint, $fontSize in map-get($style, 'font-sizes') {
       @if $breakpoint == "small" {
         font-size: $fontSize;
