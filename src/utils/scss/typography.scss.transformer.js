@@ -34,10 +34,15 @@ module.exports.typographyVariablesTransformer = function typographyVariablesTran
     "font-sizes": (
       ${Object.entries(item['font-sizes'])
           .map(([breakpoint, fontSizeObj]) => {
-              const fontScale = fontSizesReference.find(([key, value]) => fontSizeObj['font-size'].value === value);
-              return `"${breakpoint}": $rebranded-font-sizes-scale-${
-                  fontScale ? fontScale[0] : fontSizeObj['font-size'].value
-              }`;
+              const fontSizeValue = fontSizeObj['font-size'].value
+                  .toString()
+                  .split(' ')
+                  .map((strPart) => {
+                      const scale = fontSizesReference.find(([_, value]) => strPart === value);
+                      return scale ? `$rebranded-font-sizes-scale-${scale[0]}` : strPart;
+                  })
+                  .join(' ');
+              return `"${breakpoint}": ${fontSizeValue}`;
           })
           .join(',\n      ')}
     ),
